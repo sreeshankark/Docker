@@ -1,4 +1,4 @@
-name: Build and Push
+name: Build & Push Docker Image
 
 on:
   push:
@@ -15,7 +15,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
   # Image name and tag. MUST be lowercase
-  IMAGE_NAME: docker
+  IMAGE_NAME: ubuntu
   IMAGE_TAG: latest
 
 jobs:
