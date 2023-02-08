@@ -33,7 +33,8 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
 && dpkg-reconfigure --frontend noninteractive tzdata
 
 # Install git and ssh
-RUN sudo apt install git ssh repo -y
+RUN sudo apt install git ssh -y
+RUN sudo apt install repo -y
 
 # Configure git
 ENV GIT_USERNAME Sanju0910
