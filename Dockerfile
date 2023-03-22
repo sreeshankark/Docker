@@ -88,5 +88,8 @@ git clone https://github.com/akhilnarang/scripts.git /tmp/scripts \
 RUN \
 sudo ln -sf /usr/bin/python2 /usr/bin/python
 
+RUN \
+sudo pip install ninja
+
 # Run bash
 CMD ["bash"]
