@@ -49,7 +49,7 @@ sudo apt update
 
 # Upgrade Packages
 RUN \
-sudo apt update -y
+sudo apt upgrade -y
 
 # Install Packages
 RUN \
