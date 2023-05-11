@@ -51,6 +51,10 @@ sudo apt update
 RUN \
 sudo apt upgrade -y
 
+# Autoremove Unwanted Packages
+RUN \
+sudo apt autoremove -y
+
 # Install Packages
 RUN \
 sudo apt install \
