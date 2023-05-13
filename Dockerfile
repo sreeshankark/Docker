@@ -95,18 +95,18 @@ sudo ln -sf /usr/bin/python2 /usr/bin/python
 RUN \
 sudo pip install ninja
 
-RUN \
-swapon --show
-RUN \
-sudo swapoff -a
-RUN \
-sudo fallocate -l 20G /swapfile
-RUN \
-sudo mkswap /swapfile
-RUN \
-sudo swapon -a
-RUN \
-free -h
+RUN swapon --show
+
+RUN sudo swapoff /swapfile
+
+RUN sudo fallocate -l 20G /swapfile
+
+RUN sudo mkswap /swapfile
+
+RUN sudo swapon /swapfile
+
+RUN free -h
+
 
 # Run bash
 CMD ["bash"]
