@@ -98,13 +98,13 @@ sudo pip install ninja
 RUN \
 swapon --show
 RUN \
-sudo swapoff /swapfile
+sudo swapoff -a
 RUN \
 sudo fallocate -l 20G /swapfile
 RUN \
 sudo mkswap /swapfile
 RUN \
-sudo swapon /swapfile
+sudo swapon -a
 RUN \
 free -h
 
