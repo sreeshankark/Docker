@@ -95,5 +95,12 @@ sudo ln -sf /usr/bin/python2 /usr/bin/python
 RUN \
 sudo pip install ninja
 
+RUN \
+swapon --show \
+  sudo swapoff /swapfile \
+  sudo fallocate -l 20G /swapfile \
+  sudo mkswap /swapfile \
+  sudo swapon /swapfile \
+  free -h
 # Run bash
 CMD ["bash"]
