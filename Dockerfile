@@ -96,11 +96,17 @@ RUN \
 sudo pip install ninja
 
 RUN \
-swapon --show \
-  sudo swapoff /swapfile \
-  sudo fallocate -l 20G /swapfile \
-  sudo mkswap /swapfile \
-  sudo swapon /swapfile \
-  free -h
+swapon --show
+RUN \
+sudo swapoff /swapfile
+RUN \
+sudo fallocate -l 20G /swapfile
+RUN \
+sudo mkswap /swapfile
+RUN \
+sudo swapon /swapfile
+RUN \
+free -h
+
 # Run bash
 CMD ["bash"]
