@@ -21,19 +21,20 @@ COPY ./proprietary /
 
 # Add swap space
 
-RUN swapon --show && \
+RUN swapon --show
 
-    fallocate -l 25G /swapfile && \
 
-    chmod 600 /swapfile && \
+RUN fallocate -l 25G /swapfile
 
-    mkswap /swapfile && \
+RUN chmod 600 /swapfile
 
-    swapon /swapfile && \
+RUN mkswap /swapfile
 
-    echo "/swapfile none swap sw 0 0" >> /etc/fstab && \
+RUN swapon /swapfile
 
-    swapon --show
+RUN echo "/swapfile none swap sw 0 0" >> /etc/fstab
+
+RUN swapon --show
     
 # apt update
 RUN apt update
