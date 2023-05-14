@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 CMD ["--cpus", "32"]
-CMD ["--memory", "128g"]
+CMD ["--memory", "40g"]
 
 # Working Directory
 WORKDIR /root
@@ -19,6 +19,22 @@ rm -f \
 
 # Copy the Proprietary Files
 COPY ./proprietary /
+
+# Clear cache and buffer
+
+RUN rm -rf /var/cache/apk/* && \
+
+    rm -rf /var/lib/apt/lists/* && \
+
+    apt-get clean && \
+
+    apt-get autoclean && \
+
+    apt-get autoremove && \
+
+    rm -rf /var/lib/{apt,dpkg,cache,log}/ && \
+
+    sync 
     
 # apt update
 RUN apt update
@@ -28,6 +44,7 @@ RUN apt install apt-utils sudo -y
 
 # tzdata
 ENV TZ Asia/Kolkata
+
 
 RUN \
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata \
