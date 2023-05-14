@@ -95,7 +95,7 @@ sudo ln -sf /usr/bin/python2 /usr/bin/python
 RUN \
 sudo pip install ninja
 
-RUN apt-get install -y swap-utils
+
 RUN swapon --show
 RUN swapoff /mnt/swapfile
 RUN fallocate -l 25G /mnt/swapfile
