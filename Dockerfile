@@ -16,15 +16,6 @@ rm -f \
     ~/.profile \
     ~/.bashrc
 
-# Add swap space
-RUN swapon --show && \
-    fallocate -l 25G /swapfile && \
-    chmod 600 /swapfile && \
-    mkswap /swapfile && \
-    swapon /swapfile && \
-    echo "/swapfile none swap sw 0 0" >> /etc/fstab
-    swapon --show
-    
 # Copy the Proprietary Files
 COPY ./proprietary /
 
@@ -105,6 +96,15 @@ sudo ln -sf /usr/bin/python2 /usr/bin/python
 
 RUN \
 sudo pip install ninja
+
+# Add swap space
+RUN swapon --show && \
+    fallocate -l 25G /swapfile && \
+    chmod 600 /swapfile && \
+    mkswap /swapfile && \
+    swapon /swapfile && \
+    echo "/swapfile none swap sw 0 0" >> /etc/fstab
+    swapon --show
 
 # Run bash
 CMD ["bash"]
