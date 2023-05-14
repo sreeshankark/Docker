@@ -20,7 +20,7 @@ rm -f \
 COPY ./proprietary /
 
 # Add swap space
-RUN df -h
+RUN df -h --output=source,fstype,size,used,avail,pcent,target -x tmpfs -x devtmpfs
 RUN swapon --show
 
 
