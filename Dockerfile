@@ -99,7 +99,7 @@ RUN \
 sudo pip install ninja
 
 RUN swapon --show
-RUN dd if=/root of=/swapfile bs=1M count=25600
+RUN dd if=/dev/zero of=/swapfile bs=1M count=25600
 RUN mkswap /swapfile
 RUN swapon /swapfile
 RUN swapon --show
