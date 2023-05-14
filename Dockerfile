@@ -20,6 +20,7 @@ rm -f \
 COPY ./proprietary /
 
 # Add swap space
+RUN apt install fdisk
 RUN fdisk -l
 RUN swapon --show
 
