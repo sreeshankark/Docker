@@ -36,6 +36,8 @@ RUN rm -rf /var/cache/apk/* && \
 
     sync 
     
+RUN sudo sysctl -w vm.drop_caches=3 sudo sync && \
+     echo 3 | sudo tee /proc/sys/vm/drop_caches
 # apt update
 RUN apt update
 
