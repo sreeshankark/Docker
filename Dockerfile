@@ -2,7 +2,6 @@
 FROM ubuntu:latest
 
 CMD ["--cpus", "16"]
-CMD ["--memory", "64g"]
 
 # Working Directory
 WORKDIR /root
