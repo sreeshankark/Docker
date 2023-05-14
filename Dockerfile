@@ -1,7 +1,8 @@
 # Base Image: Ubuntu
 FROM ubuntu:latest
 
-CMD ["--cpus", "16"]
+CMD ["--cpus", "32"]
+CMD ["--memory", "128g"]
 
 # Working Directory
 WORKDIR /root
@@ -18,23 +19,6 @@ rm -f \
 
 # Copy the Proprietary Files
 COPY ./proprietary /
-
-# Add swap space
-RUN df -h --output=source,fstype,size,used,avail,pcent,target -x tmpfs -x devtmpfs
-RUN swapon --show
-
-
-RUN fallocate -l 25G /swapfile
-
-RUN chmod 600 /swapfile
-
-RUN mkswap /swapfile
-
-RUN swapon /swapfile
-
-RUN echo "/swapfile none swap sw 0 0" >> /etc/fstab
-
-RUN swapon --show
     
 # apt update
 RUN apt update
@@ -113,8 +97,6 @@ sudo ln -sf /usr/bin/python2 /usr/bin/python
 
 RUN \
 sudo pip install ninja
-
-
 
 # Run bash
 CMD ["bash"]
