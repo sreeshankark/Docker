@@ -20,7 +20,7 @@ rm -f \
 COPY ./proprietary /
 
 # Add swap space
-
+RUN fdisk -l
 RUN swapon --show
 
 
