@@ -17,7 +17,7 @@ rm -f \
     ~/.bashrc
 
 # Add swap space
-RUN swapon --show
+RUN swapon --show && \
     fallocate -l 25G /swapfile && \
     chmod 600 /swapfile && \
     mkswap /swapfile && \
