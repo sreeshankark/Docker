@@ -1,8 +1,9 @@
 # Base Image: Ubuntu
 FROM ubuntu:latest
 
-CMD ["--cpus", "32"]
-CMD ["--memory", "40g"]
+CMD ["--cpus", "16"]
+CMD ["--memory", "32g"]
+CMD ["--oom-kill-disable"]
 
 # Working Directory
 WORKDIR /root
@@ -18,24 +19,7 @@ rm -f \
     ~/.bashrc
 
 # Copy the Proprietary Files
-COPY ./proprietary /
-
-# Clear cache and buffer
-
-RUN rm -rf /var/cache/apk/* && \
-
-    rm -rf /var/lib/apt/lists/* && \
-
-    apt-get clean && \
-
-    apt-get autoclean && \
-
-    apt-get autoremove && \
-
-    rm -rf /var/lib/{apt,dpkg,cache,log}/ && \
-
-    sync 
-    
+COPY ./proprietary / 
 
 # apt update
 RUN apt update
