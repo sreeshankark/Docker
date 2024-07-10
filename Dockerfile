@@ -63,7 +63,7 @@ sudo apt autoremove -y
 # Install Packages
 RUN \
 sudo apt install \
-    curl wget aria2 tmate python2 python3 python-is-python3 silversearch* \
+    curl wget aria2 tmate python2 python3 silversearch* \
     iputils-ping iproute2 \
     nano rsync rclone tmux screen openssh-server \
     python3-pip adb fastboot jq npm neofetch mlocate \
