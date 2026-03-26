@@ -17,7 +17,7 @@ env:
 
   # Image name and tag. MUST be lowercase
   IMAGE_NAME: ubuntu
-  IMAGE_TAG: 22.04
+  IMAGE_TAG: latest
 
 jobs:
   push:
