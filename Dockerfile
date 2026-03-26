@@ -1,5 +1,5 @@
 # Base Image: Ubuntu
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 CMD ["--cpus", "16"]
 CMD ["--memory", "32g"]
