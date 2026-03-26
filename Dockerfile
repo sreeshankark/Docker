@@ -1,5 +1,5 @@
 # Base Image: Ubuntu
-FROM ubuntu:22.04
+FROM ubuntu:latest
 
 CMD ["--cpus", "16"]
 CMD ["--memory", "32g"]
@@ -64,7 +64,7 @@ sudo apt autoremove -y
 RUN \
 sudo apt install -y bc build-essential bison flex zip gcc clang libc6 \
             curl libstdc++6 git wget libssl-dev zstd lld openjdk-11-jdk llvm \
-            openjdk-11-jre python3 python3-pip python-is-python3 ccache gcc-arm-linux-gnueabi \
+            openjdk-11-jre python3 python3-pip ccache gcc-arm-linux-gnueabi \
             gcc-aarch64-linux-gnu libyaml-dev cpio mkisofs wget device-tree-compiler
             
 # Setup Android Build Environment
