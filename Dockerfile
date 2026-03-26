@@ -64,7 +64,7 @@ sudo apt autoremove -y
 RUN \
 sudo apt install -y bc build-essential bison flex zip gcc clang libc6 \
             curl libstdc++6 git wget libssl-dev zstd lld openjdk-11-jdk llvm \
-            openjdk-11-jre python3 python3-pip ccache gcc-arm-linux-gnueabi \
+            openjdk-11-jre python3 python3-pip python-is-python3 ccache gcc-arm-linux-gnueabi \
             gcc-aarch64-linux-gnu libyaml-dev cpio mkisofs wget device-tree-compiler
             
 # Setup Android Build Environment
@@ -72,10 +72,6 @@ RUN \
 git clone https://github.com/akhilnarang/scripts.git /tmp/scripts \
 && sudo bash /tmp/scripts/setup/android_build_env.sh \
 && rm -rf /tmp/scripts
-
-# Use python2 as the Default python
-RUN \
-sudo ln -sf /usr/bin/python2 /usr/bin/python
 
 RUN \
 wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz -O clang.tar.gz \
