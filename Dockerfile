@@ -67,22 +67,6 @@ sudo apt install -y bc build-essential bison flex zip gcc clang libc6 \
             openjdk-11-jre python3 python3-pip ccache gcc-arm-linux-gnueabi \
             gcc-aarch64-linux-gnu libyaml-dev cpio mkisofs wget device-tree-compiler
             
-# Filesystems
-RUN \
-sudo apt install \
-    erofs-utils \
-    -y
-
-RUN \
-sudo pip install \
-    twrpdtgen
-
-# Install schedtool and Java
-RUN \
-    sudo apt install \
-        schedtool openjdk-8-jdk \
-    -y
-
 # Setup Android Build Environment
 RUN \
 git clone https://github.com/akhilnarang/scripts.git /tmp/scripts \
@@ -92,9 +76,6 @@ git clone https://github.com/akhilnarang/scripts.git /tmp/scripts \
 # Use python2 as the Default python
 RUN \
 sudo ln -sf /usr/bin/python2 /usr/bin/python
-
-RUN \
-sudo pip install ninja
 
 RUN \
 wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz -O clang.tar.gz \
