@@ -42,7 +42,7 @@ RUN sudo apt install git ssh -y
 RUN sudo apt install repo -y
 
 # Configure git
-ENV GIT_USERNAME Sanju0910
+ENV GIT_USERNAME sreeshankark
 ENV GIT_EMAIL sreeshankar0910@gmail.com
 RUN \
     git config --global user.name $GIT_USERNAME \
