@@ -74,9 +74,12 @@ git clone https://github.com/akhilnarang/scripts.git /tmp/scripts \
 && rm -rf /tmp/scripts
 
 RUN \
-wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz -O clang.tar.gz \
-mkdir clang-llvm \
-tar -xvf clang.tar.gz -C clang-llvm \
+wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz -O clang.tar.gz
+RUN \
+mkdir clang-llvm 
+RUN \
+tar -xvf clang.tar.gz -C clang-llvm
+RUN \
 rm clang.tar.gz
 
 # Run bash
