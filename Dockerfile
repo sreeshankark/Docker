@@ -62,15 +62,11 @@ sudo apt autoremove -y
 
 # Install Packages
 RUN \
-sudo apt install \
-    curl wget aria2 tmate python2 python3 silversearch* \
-    iputils-ping iproute2 \
-    nano rsync rclone tmux screen openssh-server \
-    python3-pip adb fastboot jq npm neofetch mlocate \
-    zip unzip tar ccache \
-    cpio lzma \
-    -y
-
+sudo apt install -y bc build-essential bison flex zip gcc clang libc6 \
+            curl libstdc++6 git wget libssl-dev zstd lld openjdk-11-jdk llvm \
+            openjdk-11-jre python3 python3-pip ccache gcc-arm-linux-gnueabi \
+            gcc-aarch64-linux-gnu libyaml-dev cpio mkisofs wget device-tree-compiler
+            
 # Filesystems
 RUN \
 sudo apt install \
@@ -99,6 +95,12 @@ sudo ln -sf /usr/bin/python2 /usr/bin/python
 
 RUN \
 sudo pip install ninja
+
+RUN \
+wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz -O clang.tar.gz \
+mkdir clang-llvm \
+tar -xvf clang.tar.gz -C clang-llvm \
+rm clang.tar.gz
 
 # Run bash
 CMD ["bash"]
